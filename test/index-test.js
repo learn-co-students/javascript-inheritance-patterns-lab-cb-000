@@ -67,6 +67,7 @@ describe('JavaScript Inheritance Patterns', function() {
     it('knows its perimeter', function() {
       expect(Polygon.prototype.perimeter).toExist()
       var p = new Polygon([new Side(3), new Side(4), new Side(2), new Side(3)])
+      debugger
       expect(p.perimeter()).toBe(12)
     })
     it('knows its number of sides', function() {
