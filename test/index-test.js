@@ -52,8 +52,8 @@ describe('JavaScript Inheritance Patterns', function() {
       expect(c.radius).toBe(2)
     })
     it('knows its area and circumference', function() {
-      var c = new Circle(2)
-      expect(c.area()).toBe(Math.PI * c.radius ** 2)
+      var c = new Circle(3)
+      expect(c.area()).toBe(Math.PI * c.radius * c.radius )
       expect(c.circumference()).toBe(2 * Math.PI * c.radius)
     })
   })
