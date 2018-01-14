@@ -44,11 +44,7 @@ function Polygon(sideArray) {
 
 Polygon.prototype = Object.create(Shape.prototype);
 Polygon.prototype.constructor = Polygon;
-Polygon.prototype.perimeter = function() {
-  return this.sides.reduce(function(a, b) {
-    return a + b;
-  }, 0); 
-}
+Polygon.prototype.perimeter = function() { return this.sides.reduce((a, b) => a + b, 0); }
 
 Polygon.prototype.numberOfSides = function() {
   return this.sides.length;
