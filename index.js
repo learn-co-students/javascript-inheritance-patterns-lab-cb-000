@@ -11,21 +11,27 @@ function Side(length) {
 }
 
 function Shape() {
-  this.position;
   this.addToPlane = (x, y) => {
     this.position = new Point(x, y);
   }
   this.move = this.addToPlane;
 }
+Shape.prototype.addToPlane = (x, y) => {
+  this.position = new Point(x, y);
+}
+Shape.prototype.move = true;
 
 function Circle(int) {
   Shape.call(this);
   this.radius = int;
+  this.diameter = () => {
+    return 2 * this.radius;
+  }
   this.area = () => {
-    return Math.pow((Math.PI * this.radius), 2);
+    return Math.PI * Math.pow(this.radius, 2);
   };
   this.circumference = () => {
-    return 2 * Math.PI * this.radius;
+    return (2 * Math.PI * this.radius);
   };
 }
 Circle.prototype = Object.create(Shape.prototype);
@@ -45,7 +51,11 @@ function Polygon(arrOfSides) {
 }
 Polygon.prototype = Object.create(Shape.prototype);
 Polygon.prototype.constructor = Polygon;
-
+Polygon.prototype.perimeter = () => {
+  var sum = 0;
+  this.sides.forEach((sideObj) => {sum += sideObj.length;})
+  return sum;
+};
 function Triangle(side1, side2, side3) {
   Polygon.call(this, [new Side(side1), new Side(side2), new Side(side3)]);
 }
@@ -66,6 +76,7 @@ function Rectangle(width, height) {
 }
 Rectangle.prototype = Object.create(Quadrilateral.prototype);
 Rectangle.prototype.constructor = Rectangle;
+Rectangle.prototype.area = () => { return this.width * this.height; };
 
 function Square(length) {
   Rectangle.call(this, length, length, length, length);
