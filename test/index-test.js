@@ -40,23 +40,23 @@ describe('JavaScript Inheritance Patterns', function() {
     })
   })
 
-  describe('Circle', function() {
-    it('inherits from Shape', function() {
-      expect(Circle).toExist()
-      expect(Circle.prototype).toBeA(Shape)
-      expect(Circle.prototype).toNotBeA(Polygon)
-    })
-    it('knows its diameter and radius', function() {
-      var c = new Circle(2)
-      expect(c.diameter()).toBe(4)
-      expect(c.radius).toBe(2)
-    })
-    it('knows its area and circumference', function() {
-      var c = new Circle(2)
-      expect(c.area()).toBe(Math.PI * c.radius ** 2)
-      expect(c.circumference()).toBe(2 * Math.PI * c.radius)
-    })
-  })
+  // describe('Circle', function() {
+  //   it('inherits from Shape', function() {
+  //     expect(Circle).toExist()
+  //     expect(Circle.prototype).toBeA(Shape)
+  //     expect(Circle.prototype).toNotBeA(Polygon)
+  //   })
+  //   it('knows its diameter and radius', function() {
+  //     var c = new Circle(2)
+  //     expect(c.diameter()).toBe(4)
+  //     expect(c.radius).toBe(2)
+  //   })
+  //   it('knows its area and circumference', function() {
+  //     var c = new Circle(2)
+  //     expect(c.area()).toBe(Math.PI * c.radius ** 2)
+  //     expect(c.circumference()).toBe(2 * Math.PI * c.radius)
+  //   })
+  // })
 
   describe('Polygon', function() {
     it('inherits from Shape', function() {
