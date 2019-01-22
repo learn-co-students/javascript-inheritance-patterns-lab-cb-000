@@ -18,11 +18,24 @@ function Side(length) {
 Side.prototype.constructor = Side;
 
 function Circle(r) {
-  //call Quadrilateral constructor
   Shape.call(this);
-  //set rectangle values
   this.radius = r;
 }
+//inherit from Shape prototype
+Circle.prototype = Object.create(Shape.prototype);
+Circle.prototype.constructor = Circle;
+Circle.prototype.diameter = function() { return 2*this.radius}
+Circle.prototype.area = function() { return Math.PI*this.radius*this.radius}
+Circle.prototype.circumference = function() { return Math.PI*2*this.radius}
+ 
+function Polygon(sides) {
+  Shape.call(this);
+}
+//inherit from Shape prototype
+Polygon.prototype = Object.create(Shape.prototype);
+Polygon.prototype.constructor = Polygon;
+Polygon.prototype.perimeter = function(sides) { return sides.sum()}
+ 
 
 /*
 Shape.prototype.position = function() {
