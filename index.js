@@ -1,13 +1,16 @@
 function Point(x, y) {
   this.x = x;
   this.y = y;
-  this.toString = () => { return(`(${this.x}, ${this.y})`);}
+  this.toString = (x,y) => { return(`(${this.x}, ${this.y})`);}
 }
 
-function Shape(sides, x, y) {
-  this.sides = sides;
-  this.x = x;
-  this.y = y;
+function Shape(x, y) {
+  this.addToPlane = (x,y) => { this.position = new Point(x,y)}
+  this.position = new Point(x,y);
+}
+
+function Side(length) {
+  this.length = length;
 }
 
 Shape.prototype.position = function() {
