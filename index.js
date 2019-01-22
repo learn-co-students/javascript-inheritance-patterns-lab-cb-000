@@ -1,22 +1,34 @@
 function Point(x, y) {
   this.x = x;
   this.y = y;
-  this.toString = (x,y) => { return(`(${this.x}, ${this.y})`);}
+  this.toString = (x,y) => { return(`(${this.x}, ${this.y})`) }
 }
+Point.prototype.constructor = Point;
 
-function Shape(x, y) {
-  this.addToPlane = (x,y) => { this.position = new Point(x,y)}
-  this.position = new Point(x,y);
+function Shape() {
 }
+Shape.prototype.constructor = Shape;
+Shape.prototype.addToPlane = function(x,y) { this.position = new Point(x,y)}
+Shape.prototype.move = function(x,y) { this.position = new Point(x,y)}
+ 
 
 function Side(length) {
   this.length = length;
 }
+Side.prototype.constructor = Side;
 
+function Circle(r) {
+  //call Quadrilateral constructor
+  Shape.call(this);
+  //set rectangle values
+  this.radius = r;
+}
+
+/*
 Shape.prototype.position = function() {
   return(this.x + ", " + this.y);
 }
- 
+
 Shape.prototype.move = function(x,y) {
   this.x = x;
   this.y = y;
@@ -87,3 +99,4 @@ square.area();
 // 9 - from Rectangle
 square.perimeter();
 // 12 - from Quadrilateral
+*/
