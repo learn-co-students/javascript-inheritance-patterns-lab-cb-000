@@ -61,6 +61,16 @@ function Triangle(side1,side2,side3) {
 Triangle.prototype = Object.create(Polygon.prototype);
 Triangle.prototype.constructor = Triangle;
 
+function Rectangle(width, height) {
+  this.width = width;
+  this.height = height;
+  Quadrilateral.call(this, this.width,this.height,this.width,this.height);
+}
+//inherit from Polygon prototype
+Rectangle.prototype = Object.create(Quadrilateral.prototype);
+Rectangle.prototype.constructor = Rectangle;
+Rectangle.prototype.area = function() { return this.width*this.height}
+
  
 
 /*
