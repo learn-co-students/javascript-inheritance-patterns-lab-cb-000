@@ -50,6 +50,17 @@ function Quadrilateral(side1,side2,side3,side4) {
 Quadrilateral.prototype = Object.create(Polygon.prototype);
 Quadrilateral.prototype.constructor = Quadrilateral;
 
+function Triangle(side1,side2,side3) {
+  var sides = [];
+  sides[0] = new Side(side1);
+  sides[1] = new Side(side2);
+  sides[2] = new Side(side3);
+  Polygon.call(this, sides);
+}
+//inherit from Polygon prototype
+Triangle.prototype = Object.create(Polygon.prototype);
+Triangle.prototype.constructor = Triangle;
+
  
 
 /*
