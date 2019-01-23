@@ -30,11 +30,13 @@ Circle.prototype.circumference = function() { return Math.PI*2*this.radius}
  
 function Polygon(sides) {
   Shape.call(this);
+  this.sides = sides;
 }
 //inherit from Shape prototype
 Polygon.prototype = Object.create(Shape.prototype);
 Polygon.prototype.constructor = Polygon;
-Polygon.prototype.perimeter = function(sides) { return sides.sum()}
+Polygon.prototype.perimeter = function() { return this.sides.reduce((tot, n)=>{return tot+n.length}, 0)}
+Polygon.prototype.numberOfSides = function() { return this.sides.length }
  
 
 /*
