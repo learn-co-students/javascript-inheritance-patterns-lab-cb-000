@@ -37,6 +37,19 @@ Polygon.prototype = Object.create(Shape.prototype);
 Polygon.prototype.constructor = Polygon;
 Polygon.prototype.perimeter = function() { return this.sides.reduce((tot, n)=>{return tot+n.length}, 0)}
 Polygon.prototype.numberOfSides = function() { return this.sides.length }
+
+function Quadrilateral(side1,side2,side3,side4) {
+  var sides = [];
+  sides[0] = new Side(side1);
+  sides[1] = new Side(side2);
+  sides[2] = new Side(side3);
+  sides[3] = new Side(side4);
+  Polygon.call(this, sides);
+}
+//inherit from Polygon prototype
+Quadrilateral.prototype = Object.create(Polygon.prototype);
+Quadrilateral.prototype.constructor = Quadrilateral;
+
  
 
 /*
